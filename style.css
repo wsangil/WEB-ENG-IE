@@ -3,19 +3,30 @@
     --light-green: #e8f5e9;
     --white: #ffffff;
     --dark-grey: #333;
+    --accent-green: #aeffae;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
+    line-height: 1.6;
     color: var(--dark-grey);
     background-color: var(--white);
 }
 
+/* Navigation */
 header {
     background-color: var(--primary-green);
     color: var(--white);
     padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav {
@@ -28,6 +39,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 nav a {
@@ -36,9 +48,18 @@ nav a {
     font-weight: bold;
 }
 
+#server-status {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.2);
+}
+
+/* Hero Section */
 .hero {
-    background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000') no-repeat center center/cover;
-    height: 60vh;
+    background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8)), 
+                url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000') no-repeat center center/cover;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,43 +67,93 @@ nav a {
     color: white;
 }
 
+/* Grid System */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .info-section {
-    padding: 50px 10%;
+    padding: 60px 0;
     text-align: center;
 }
 
-.grid-container {
+.academic-details {
+    background-color: var(--light-green);
+    padding: 80px 0;
+}
+
+.academic-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.card {
-    padding: 20px;
-    border: 1px solid var(--light-green);
+/* Cards */
+.card, .academic-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
     border-top: 5px solid var(--primary-green);
-    transition: transform 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+.academic-card {
+    border-top: none;
+    border-left: 6px solid var(--primary-green);
+    text-align: left;
+}
+
+.card:hover, .academic-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Typography & Buttons */
+h2 {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-bottom: 15px;
+    color: var(--primary-green);
 }
 
 .btn-primary {
     background-color: var(--white);
     color: var(--primary-green);
     border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    cursor: pointer;
+    padding: 12px 30px;
     font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.text-link {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
 }
 
 footer {
     background: var(--dark-grey);
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
 }
