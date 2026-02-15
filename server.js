@@ -1,21 +1,24 @@
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
+const cors = require('cors');
+
 const app = express();
 const PORT = 3000;
 
+// Middleware
 app.use(cors());
-app.use(express.static('.')); // Serves your HTML/CSS/JS files
+// This line is crucial: it serves your HTML, CSS, and JS files from the current folder
+app.use(express.static(__dirname));
 
-// API Route for the department status
+// Sample API Route for Department Info
 app.get('/api/status', (req, res) => {
     res.json({ 
         status: "Online", 
-        department: "Industrial Engineering",
-        message: "Welcome to the Industrial Engineering Website!"
+        timestamp: new Date().toLocaleTimeString() 
     });
 });
 
+// Start Server
 app.listen(PORT, () => {
-    console.log(`IE Department Server running at http://localhost:${PORT}`);
+    console.log(`IE Department Website running at http://localhost:${PORT}`);
 });
